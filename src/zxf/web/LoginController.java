@@ -28,6 +28,7 @@ public class LoginController {
         if (StringUtil.isEmpty(username) || StringUtil.isEmpty(password)) {
             req.setAttribute("error", "用户名或密码为空！");
             req.getRequestDispatcher("L.jsp").forward(req, resp);
+
         }
 
         User user = new User(username,password);
