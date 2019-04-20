@@ -1,9 +1,7 @@
 package zxf.dao;
-
 import org.springframework.stereotype.Component;
 import zxf.model.PageBean;
 import zxf.model.User;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -28,8 +26,8 @@ public class UserDao {
     }
 
     public ResultSet userList(Connection con, PageBean pageBean) throws Exception {
-        System.out.println("aaa");
-        StringBuffer sb = new StringBuffer("select * from user");
+        StringBuffer sb = new StringBuffer("select id,user_no,user_name,user_tel_num,user_addr,user_email" +
+                " from user");
 		/*if(grade!=null && StringUtil.isNotEmpty(grade.getGradeName())){
 			sb.append(" and gradeName like '%"+grade.getGradeName()+"%'");
 		}*/

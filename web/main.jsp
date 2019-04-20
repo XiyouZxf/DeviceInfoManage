@@ -5,17 +5,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>设备信息管理系统主界面</title>
-<%-- <%   // 权限验证
+ <%
 	if(session.getAttribute("currentUser")==null){
 		response.sendRedirect("login.jsp");
 		return;
 	}
-%> --%>
+%>
+	<% String path = request.getContextPath(); %>
 <link rel="stylesheet" type="text/css" href="jquery-easyui-1.3.3/themes/default/easyui.css">
 <link rel="stylesheet" type="text/css" href="jquery-easyui-1.3.3/themes/icon.css">
-<script type="text/javascript" src="jquery-easyui-1.3.3/jquery.min.js"></script>
-<script type="text/javascript" src="jquery-easyui-1.3.3/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="jquery-easyui-1.3.3/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="<%=path %>/jquery-easyui-1.3.3/jquery.min.js"></script>
+<script type="text/javascript" src="<%=path %>/jquery-easyui-1.3.3/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="<%=path %>/jquery-easyui-1.3.3/locale/easyui-lang-zh_CN.js"></script>
 <script type="text/javascript">
 	$(function(){
 		// 数据
@@ -67,7 +68,6 @@
 		<div style="padding-top: 50px;padding-right: 20px;">
 		当前用户：&nbsp;<font color="red" >${currentUser.user_no }</font>
 		</div>
-		
 	</div>
 	<div region="center">
 		<div class="easyui-tabs" fit="true" border="false" id="tabs">
@@ -76,7 +76,7 @@
 			</div>
 		</div>
 	</div>
-	<div region="west" style="width: 150px;" title="导航菜单" split="true">  
+	<div region="west" style="width: 150px;" title="导航菜单" split="true">
 		<ul id="tree"></ul>
 	</div>
 	<div region="south" style="height: 25px;" align="center">版权所有<a href="">www.zxf.com</a></div>

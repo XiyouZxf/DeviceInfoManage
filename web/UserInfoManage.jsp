@@ -11,9 +11,9 @@
 <script type="text/javascript" src="jquery-easyui-1.3.3/jquery.easyui.min.js"></script>
 <script type="text/javascript" src="jquery-easyui-1.3.3/locale/easyui-lang-zh_CN.js"></script>
 </head>
-<body>
-    <table id="dg" title="班级信息" class="easyui-datagrid" fitColumns="true"
-	 pagination="true" rownumbers="true" url="userList"  toolbar="#tb">
+<body style="margin: 5px;">
+    <table id="dg" title="用户信息" class="easyui-datagrid" fitColumns="true"
+	 pagination="true" rownumbers="true" url="userList"  toolbar="#tb" fit="true">
 		<thead>
 			<tr>
 				<th field="cb" checkbox="true"></th>
@@ -21,7 +21,6 @@
 				<th field="user_no" width="70">用户账号</th>
 				<th field="user_name" width="70">姓名</th>
 				<th field="user_tel_num" width="80">电话</th>
-				
 				<th field="user_addr" width="60">地址</th>
 				<th field="user_email" width="60">邮箱</th>
 				

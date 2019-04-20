@@ -1,8 +1,8 @@
 package zxf.util;
 
-import net.sf.json.JSONObject;
-import org.springframework.stereotype.Component;
 
+import com.alibaba.fastjson.JSONObject;
+import org.springframework.stereotype.Component;
 import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
 @Component

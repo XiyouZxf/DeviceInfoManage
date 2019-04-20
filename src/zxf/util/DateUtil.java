@@ -1,7 +1,5 @@
 package zxf.util;
-
 import org.springframework.stereotype.Component;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 @Component
@@ -24,8 +22,6 @@ public class DateUtil {
 		}
 		return result;
 	}
-	
-	
 	public static Date formatString(String str,String format) throws Exception{
 		SimpleDateFormat sdf=new SimpleDateFormat(format);
 		return sdf.parse(str);

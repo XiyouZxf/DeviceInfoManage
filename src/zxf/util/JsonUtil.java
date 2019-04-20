@@ -1,9 +1,9 @@
 package zxf.util;
 
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
-import org.springframework.stereotype.Component;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import org.springframework.stereotype.Component;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.util.Date;
