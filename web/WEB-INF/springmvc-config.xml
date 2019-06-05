@@ -14,10 +14,8 @@
     <context:component-scan base-package="zxf.dao" />
     <context:component-scan base-package="zxf.model" />
     <context:component-scan base-package="zxf.util" />
-
     <mvc:default-servlet-handler/>
     <mvc:annotation-driven></mvc:annotation-driven>
-
     <!-- 注册视图解析器 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/"></property>

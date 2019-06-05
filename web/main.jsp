@@ -23,16 +23,24 @@
 		var treeData=[{
 			text:"根",
 			children:[{
-				text:"用户信息管理",
-				attributes:{
-					url:"UserInfoManage.jsp"
-				}
-			},{
-				text:"设备信息管理",
-				attributes:{
-					url:"DeviceInfoManage.jsp"
-				}
-			}]
+                text:"设备管理",
+                attributes:{
+                    url:"deviceManage.jsp"
+                }
+            },{
+                text:"鉴定报告管理",
+                attributes:{
+                    url:"report.jsp"
+                }
+            },{
+                text:"计划管理",
+                children:[{
+                    text:"检验计划",
+                    attributes:{
+                        url:"examineScheduleManage.jsp"
+                    }
+                }]
+            }]
 		}];
 		
 		// 实例化树菜单
@@ -64,9 +72,18 @@
 </head>
 <body class="easyui-layout">
 	<div region="north" style="height: 80px;background-color: #E0EDFF">
-		<div align="left" style="width: 80%;float: left"><img src="images/main.jpg"></div>
+		<div align="left" style="width: 80%;float: left"></div>
 		<div style="padding-top: 50px;padding-right: 20px;">
-		当前用户：&nbsp;<font color="red" >${currentUser.user_no }</font>
+		     当前用户：&nbsp;<font color="red" >${currentUser.emp_no }</font>
+
+			<%
+				if(session.getAttribute("currentUser")==null){
+					response.sendRedirect("login.jsp");
+					return;
+				}
+			%>
+
+
 		</div>
 	</div>
 	<div region="center">

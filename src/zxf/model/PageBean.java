@@ -1,8 +1,4 @@
 package zxf.model;
-
-import org.springframework.stereotype.Component;
-
-@Component
 public class PageBean {
 
 	private int page;     //第几页

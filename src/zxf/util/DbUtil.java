@@ -1,8 +1,6 @@
 package zxf.util;
-import org.springframework.stereotype.Component;
 import java.sql.Connection;
 import java.sql.DriverManager;
-@Component
 public class DbUtil {
 	private String dbUrl="jdbc:mysql://localhost:3306/db_deviceInfo";
 	private String dbUserName="root";
