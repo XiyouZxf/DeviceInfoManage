@@ -1,13 +1,9 @@
 package zxf.util;
-
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
-import org.springframework.stereotype.Component;
-
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.util.Date;
-@Component
 public class JsonUtil {
 
 	public static JSONArray formatRsToJsonArray(ResultSet rs)throws Exception{

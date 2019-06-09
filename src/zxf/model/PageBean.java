@@ -1,22 +1,15 @@
 package zxf.model;
-
-import org.springframework.stereotype.Component;
-
-@Component
 public class PageBean {
 
 	private int page;     //第几页
 	private int rows;    //每页记录数
 	private int start;   //起始页
-
 	public PageBean(){};
-	
 	public PageBean(int page, int rows) {
 		super();
 		this.page = page;
 		this.rows = rows;
 	}
-	
 	public int getPage() {
 		return page;
 	}

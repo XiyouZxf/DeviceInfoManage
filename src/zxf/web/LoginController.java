@@ -3,8 +3,9 @@ package zxf.web;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import zxf.dao.UserDao;
-import zxf.model.User;
+import zxf.dao.LoginDao;
+import zxf.model.Admin;
+import zxf.model.Employee;
 import zxf.util.DbUtil;
 import zxf.util.StringUtil;
 import javax.servlet.http.HttpServletRequest;
@@ -18,8 +19,8 @@ import java.sql.Connection;
 @Controller
 public class LoginController {
 
-    @Autowired DbUtil dbUtil;
-    @Autowired UserDao userDao;
+    DbUtil dbUtil=new DbUtil();
+    @Autowired LoginDao loginDao;
     @RequestMapping("/login")
     public void login(HttpServletRequest req, HttpServletResponse resp) throws Exception{
 
@@ -27,18 +28,25 @@ public class LoginController {
         String password = req.getParameter("password");
         if (StringUtil.isEmpty(username) || StringUtil.isEmpty(password)) {
             req.setAttribute("error", "用户名或密码为空！");
-            req.getRequestDispatcher("L.jsp").forward(req, resp);
-
+            req.getRequestDispatcher("login.jsp").forward(req, resp);
+            return;
         }
-
-        User user = new User(username,password);
+        Employee employee = new Employee(username,password);
+        Admin admin = new Admin(username,password);
         Connection conn=null;
         try {
             conn =dbUtil.getCon();
-            User currentUser =userDao.login(conn, user);
+            Employee currentUser =loginDao.login(conn, employee);
+            Admin  currentAdmin =loginDao.login(conn,admin);
             if (currentUser==null) {
-                req.setAttribute("error", "用户名或密码错误！");
-                req.getRequestDispatcher("L.jsp").forward(req, resp);
+                 if (currentAdmin==null) {
+                     req.setAttribute("error", "用户名或密码错误！");
+                     req.getRequestDispatcher("login.jsp").forward(req, resp);
+                 }else {
+                     HttpSession session=req.getSession();
+                     session.setAttribute("currentAdmin", currentAdmin);
+                     resp.sendRedirect("adminmain.jsp");
+                 }
             }else {
                 HttpSession session=req.getSession();
                 session.setAttribute("currentUser", currentUser);

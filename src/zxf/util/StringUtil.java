@@ -1,8 +1,5 @@
 package zxf.util;
 
-import org.springframework.stereotype.Component;
-
-@Component
 public class StringUtil {
 
 	public static boolean isEmpty(String str){

@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>设备信息管理系统主界面</title>
  <%
-	if(session.getAttribute("currentUser")==null){
+	if(session.getAttribute("currentAdmin")==null){
 		response.sendRedirect("login.jsp");
 		return;
 	}
@@ -23,24 +23,16 @@
 		var treeData=[{
 			text:"根",
 			children:[{
-                text:"设备管理",
-                attributes:{
-                    url:"deviceManage.jsp"
-                }
-            },{
-                text:"鉴定报告管理",
-                attributes:{
-                    url:"report.jsp"
-                }
-            },{
-                text:"计划管理",
-                children:[{
-                    text:"检验计划",
-                    attributes:{
-                        url:"examineScheduleManage.jsp"
-                    }
-                }]
-            }]
+				text:"部门管理",
+				attributes:{
+					url:"department.jsp"
+				}
+			},{
+				text:"用户管理",
+				attributes:{
+					url:"employee.jsp"
+				}
+			}]
 		}];
 		
 		// 实例化树菜单
@@ -74,15 +66,13 @@
 	<div region="north" style="height: 80px;background-color: #E0EDFF">
 		<div align="left" style="width: 80%;float: left"></div>
 		<div style="padding-top: 50px;padding-right: 20px;">
-		     当前用户：&nbsp;<font color="red" >${currentUser.emp_no }</font>
-
+		     当前用户：&nbsp;<font color="red" >${currentAdmin.admin_no }</font>
 			<%
-				if(session.getAttribute("currentUser")==null){
+				if(session.getAttribute("currentAdmin")==null){
 					response.sendRedirect("login.jsp");
 					return;
 				}
 			%>
-
 
 		</div>
 	</div>
